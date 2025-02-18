@@ -1,0 +1,9 @@
+Here are the relevant commands that were executed on my Ubuntu Linux Machine
+
+AFL Fuzzing:
+echo core | sudo tee /proc/sys/kernel/core_pattern
+cat /proc/sys/kernel/core_pattern
+/home/vboxuser/AFLplusplus/afl-fuzz -i input_tests/ -o output_tests/ ./mysort @@ 4
+
+Delta Debugging:
+delta/bin/delta -test=script -cp_minimal=min_failing_test.txt < output_tests/default/hangs/big_failing_test.txt
