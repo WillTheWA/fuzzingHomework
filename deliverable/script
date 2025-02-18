@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Set Test, Command, and Timeout variables
+TEST_FILE=$1
+COMMAND=/home/vboxuser/Documents/fuzzing/mysort		
+TIMEOUT=4
+
+# Print Vars
+echo "Testing File: $TEST_FILE"
+echo "Running Command: $COMMAND"
+echo "Timeout Value: $TIMEOUT"
+
+# Run the sort command and check for timeout
+# Returns 0 for no error
+# Returns 1 for no error
+if echo $("COMMAND" "$TEST_FILE" "$TIMEOUT" 2>&1) | grep -q "Error: timeout"; then
+    exit 1
+else
+    exit 0
+fi
