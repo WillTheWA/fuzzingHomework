@@ -1,0 +1,17 @@
+William Morton
+CS 362
+Assignment 3
+
+1. The bug in the source code is that it doesn't handle empty lines (\n). This occurs in the parser for the program. min_failing_tests.txt includes a garbage value and a newline. These are what delta determined are the issues. 
+
+2. All inputs that contain newlines appear to be the issue. The 
+min_failing_test.txt file contained a garbage value and an empty line. The empty line
+is what is causing the issue. While delta identifies the line with garbage values as 
+an issue, it can be sorted by mysort.
+
+3. There is a very simple fix for the bug. Within the main function, the parsing needs to handle the case where a line is empty. In the while(1) loop below the first if statement, add the following lines:
+
+	if (s[0] == '\n')
+		continue;
+This allows the program to handle newlines. Recompile mysort and test with
+min_failing_test.txt and big_failing_test.txt. The error should be resolved. 
