@@ -15,10 +15,11 @@ echo "Timeout Value: $TIMEOUT"
 
 OUTPUT=$("$COMMAND" "$FULL_PATH" "$TIMEOUT" 2>&1)
 
-# REMOVE COMMENT BELOW FOR DEBUGGING
 # echo "$OUTPUT"
 
 # Run the sort command and check for timeout
+# Returns 0 for no error
+# Returns 1 for no error
 if echo "$OUTPUT" | grep -q "Error: timeout"; then
     echo "HANG"
     exit 0;
